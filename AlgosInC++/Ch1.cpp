@@ -206,6 +206,18 @@ void Ch1P8() {
 	std::cout << "Gcd between " << x << " " << y << " " << z << " is " << Gcd(firstGcd, z) << "\n";
 }
 
+/**
+	PROBLEM 9
+**/
+void Ch1P9() {
+	int x = INT_MAX;
+	int y = INT_MAX;
+	while (LogGcd(x, y) > 1) {
+		y--;
+	}
+	std::cout << "Greatest pair of integers whose Gcd is 1 : " << x << " " << y << "\n\n";
+}
+
 
 void Ch1() {
 	std::cout << "Problem menu:\n";
@@ -233,6 +245,9 @@ void Ch1() {
 			break;
 		case 8:
 			Ch1P8();
+			break;
+		case 9:
+			Ch1P9();
 			break;
 		default:
 			std::cout << "Enter a valid option\n";
