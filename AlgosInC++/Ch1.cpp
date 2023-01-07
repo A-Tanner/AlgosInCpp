@@ -1,13 +1,13 @@
 #include <iostream>
 #include <stdio.h>
-
+#include <math.h>
 /**
 PROTOTYPE DECLARATIONS
 **/
 int Ch1P1(int x, int y);
 int Ch1P2(int x, int y);
 int Ch1P3(int x, int y);
-
+int Ch1P6(int x, int y);
 /**
 UTILITY FUNCTIONS
 **/
@@ -31,6 +31,9 @@ void EuclideanPrompt(int problem) {
 		break;
 	case 3:
 		std::cout << Ch1P3(x, y);
+		break;
+	case 6:
+		std::cout << Ch1P6(x, y);
 		break;
 	}
 
@@ -145,6 +148,54 @@ void Ch1P4() {
 	return;
 
 }
+/**
+	PROBLEM 5
+**/
+int Binary(int x) {
+	int binaryNum = 0;
+	while (x > 0) {
+		int i = 0;
+		while (pow(2, i + 1) <= x) {
+			i++;
+		}
+		x -= pow(2, i);
+		binaryNum += pow(10, i);
+	}
+	return binaryNum;
+}
+
+void Ch1P5() {
+	int input;
+	std::cout << "Enter the digit you would like converted to binary : ";
+	std::cin >> input;
+	std::cout << input << " is " << Binary(input) << " in binary\n";
+}
+/**
+	PROBLEM 6
+**/
+int LogGcd(int u, int v) {
+	int count = 0;
+	while (u > 0) {
+		std::cout << "\t\tCYCLE " << count <<"\n";
+		if (u < v) { //Swap values of u and v
+			std::cout << "\tSwap values\n";
+			int temp = u;
+			u = v;
+			v = temp;
+		}
+		std::cout << "\tOperation : " << u << " % " << v << "\n";
+		u = u % v;
+		std::cout << "\tResult : " << u << "\n";
+		count++;
+	}
+
+	return v;
+}
+
+int Ch1P6(int x, int y) {
+	return LogGcd(x, y);
+}
+
 
 void Ch1() {
 	std::cout << "Problem menu:\n";
@@ -161,11 +212,14 @@ void Ch1() {
 	while (choice == -1) {
 		std::cin >> choice;
 		switch (choice) {
-		case 1:case 2: case 3: 
+		case 1:case 2: case 3: case 6:
 			EuclideanPrompt(choice);
 			break;
 		case 4:
 			Ch1P4();
+			break;
+		case 5:
+			Ch1P5();
 			break;
 		default:
 			std::cout << "Enter a valid option\n";
