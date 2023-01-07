@@ -212,7 +212,7 @@ void Ch1P8() {
 void Ch1P9() {
 	int x = INT_MAX;
 	int y = INT_MAX;
-	while (LogGcd(x, y) > 1) {
+	while (ModGcd(x, y) > 1) {
 		y--;
 	}
 	std::cout << "Greatest pair of integers whose Gcd is 1 : " << x << " " << y << "\n\n";
