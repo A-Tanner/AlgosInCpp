@@ -195,6 +195,16 @@ int LogGcd(int u, int v) {
 int Ch1P6(int x, int y) {
 	return LogGcd(x, y);
 }
+/**
+	PROBLEM 8
+**/
+void Ch1P8() {
+	int x,y,z;
+	std::cout << "Enter three numbers \n";
+	std::cin >> x >> y >> z;
+	int firstGcd = Gcd(x, y);
+	std::cout << "Gcd between " << x << " " << y << " " << z << " is " << Gcd(firstGcd, z) << "\n";
+}
 
 
 void Ch1() {
@@ -220,6 +230,9 @@ void Ch1() {
 			break;
 		case 5:
 			Ch1P5();
+			break;
+		case 8:
+			Ch1P8();
 			break;
 		default:
 			std::cout << "Enter a valid option\n";
