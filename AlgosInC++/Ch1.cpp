@@ -111,15 +111,15 @@ int Ch1P3(int x, int y) {
 PROBLEM 4
 **/
 
-int AddDigit(int existing, int incoming) {
-	existing *= 10;
-	existing += incoming;
-	return existing;
+void AddDigit(int* existing, int incoming) {
+	*existing *= 10;
+	*existing += incoming;
 }
 
 int EnterDigit() {
 	int digit = 10;
-	while (digit < 10) {
+	
+	while (digit < -1 || digit > 9) {
 		std::cout << "Enter a digit from 0-9 to have it appended the number, or -1 to conclude your number\n";
 		std::cin >> digit;
 		if (digit < -1 || digit > 9) {
@@ -134,11 +134,11 @@ void Ch1P4() {
 	int currentNumber = finalNumber;
 
 	while (currentNumber != -1) {
+		std::cout << "Your number so far is : " << finalNumber << "\n";
 		currentNumber = EnterDigit();
-		std::cout << "Your number so far is : " << finalNumber <<"\n";
 		if (currentNumber == -1) { return; }
 		else {
-			AddDigit(finalNumber, currentNumber);
+			AddDigit(&finalNumber, currentNumber);
 		}
 	}
 
